@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Deviii Jii 😋</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.page {
+  display: none;
+  padding: 30px 20px;
+  animation: fadeIn 1s ease;
+}
+
+.active {
+  display: block;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💖 PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Good Morning ☀️</h1>
+  <h2>Meri Pyari Pyari Deviii Jiii 😋</h2>
+  <p>Aaj ka din special hai… kyunki aap ho 💫</p>
+  <button onclick="nextPage(2)">Click here 💌</button>
+</div>
+
+<!-- 💖 PAGE 2 -->
+<div class="page" id="page2">
+  <h2>Aapne pucha tha…</h2>
+  <p><b>"Mujh mein aisa kya hai?"</b></p>
+  <p style="margin-top:20px;">
+    Uska answer simple hai…<br><br>
+    <b>Vo har cheez jo ek Deviii Jii mein hoti hai 💖</b><br><br>
+    Aapki smile 😊<br>
+    Aapki cuteness 🥺<br>
+    Aapka nature 💫<br><br>
+    Sab kuch bohot acchi hai…
+  </p>
+  <button onclick="nextPage(3)">Aur dekho 👉</button>
+</div>
+
+<!-- 💖 PAGE 3 -->
+<div class="page" id="page3">
+  <h2>Ek secret bataun? 🤫</h2>
+  <p>
+    Aap sirf pyari nahi ho…<br><br>
+    Aap vo feeling ho jo words mein explain nahi hoti 💗<br><br>
+    Aap vo reason ho jisse din achha lagta hai 🌸<br>
+    Aur raat bhi peaceful 🌙
+  </p>
+  <button onclick="nextPage(4)">Next 💕</button>
+</div>
+
+<!-- 💖 PAGE 4 -->
+<div class="page" id="page4">
+  <h2>Special Message 💌</h2>
+  <p>
+    Kabhi kabhi lagta hai…<br><br>
+    Bhagwan ne extra time liya hoga aapko banane mein ✨<br><br>
+    Tabhi itni pyari, itni special ho 💖
+  </p>
+  <button onclick="nextPage(5)">Last Surprise 🎁</button>
+</div>
+
+<!-- 💖 PAGE 5 -->
+<div class="page" id="page5">
+  <h2>Mini Game 🎮</h2>
+  <p>Click the button 5 times 😄</p>
+  <button onclick="gameClick()">Click me 💖</button>
+  <p id="gameText"></p>
+</div>
+
+<!-- 💖 FINAL PAGE -->
+<div class="page" id="page6">
+  <h1>🌅 Happiest Good Morning Ever 😋</h1>
+  <h2>Meri Pyari Pyari Deviii Jiii 💕</h2>
+  <p>
+    Bas ek baat…<br><br>
+    Aap hamesha aise hi muskuraati raho 😊<br><br>
+    Kyunki duniya ko aap jaise log bahut kam milte hain ✨<br><br>
+    Aur mujhe… sabse special 💖
+  </p>
+</div>
+
+<script>
+function nextPage(pageNumber) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + pageNumber).classList.add('active');
+}
+
+let count = 0;
+function gameClick() {
+  count++;
+  document.getElementById("gameText").innerText = "Clicks: " + count;
+
+  if (count >= 5) {
+    nextPage(6);
+  }
+}
+
+// floating hearts
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script>
+
+</body>
+</html>
